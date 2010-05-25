@@ -39,7 +39,7 @@ module Cms
       module InstanceMethods
 
         def connected_pages
-          Page.currently_connected_to(self)
+          Page.connected_to(self)
         end
 
         def connected_page_count
