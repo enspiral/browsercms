@@ -74,7 +74,9 @@ module ActsAsList
   module InstanceMethods
     # Insert the item at the given position (defaults to the top position of 1).
     def insert_at(position = 1)
-      insert_at_position(position)
+      acts_as_list_class.transaction do
+        insert_at_position(position)
+      end
     end
 
     # Swap positions with the next lower item, if one exists.

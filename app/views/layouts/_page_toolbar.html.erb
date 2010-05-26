@@ -50,7 +50,7 @@
   <%= link_to "<span>Publish</span>", 
     @page.live? ? '#' : publish_cms_page_path(@page), 
     :id => "publish_button",
-    :class => "http_put button#{' disabled' if !current_user.able_to?(:publish_content) || !current_user.able_to_edit?(@page) || @page.version != @page.draft.version || @page.live?} left",
+    :class => "http_put button#{' disabled' if !current_user.able_to?(:publish_content) || !current_user.able_to_edit?(@page) || @page.live?} left",
     :target => "_top" %>
     
   <%= link_to "<span>Assign</span>", 
