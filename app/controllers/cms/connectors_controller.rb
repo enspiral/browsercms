@@ -1,5 +1,5 @@
 class Cms::ConnectorsController < Cms::BaseController
-  
+    
   before_filter :set_toolbar_tab
   before_filter :load_page, :only => [:new, :create]
   
@@ -38,7 +38,7 @@ class Cms::ConnectorsController < Cms::BaseController
     :up => "up in",
     :down => "down in",
     :to_top => "to the top of",
-    :to_bottom => "to the bottom of"    
+    :to_bottom => "to the bottom of"
   }.each do |move, where|
     define_method "move_#{move}" do
       @connector = Connector.find(params[:id])
@@ -52,7 +52,22 @@ class Cms::ConnectorsController < Cms::BaseController
       redirect_to @page.path    
     end
   end
-
+  
+  def move_to # Moves a connector to a specific index. For use with JQuery.Sortable!
+    unless request.xhr?
+      render :status => 400, :text => "Ajax only, sorry"
+      return # Ajax only, sorry
+    end
+    @connector = Connector.find(params[:id])
+    @page = @connector.page
+    @connectable = @connector.connectable
+    if @page.send("move_connector_to", @connector, params[:position])
+      render :status => 200, :nothing => true
+    else
+      render :status => 400, :nothing => true
+    end
+  end
+  
   private
     def load_page
       @page = Page.find(params[:page_id])

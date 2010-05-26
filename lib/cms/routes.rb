@@ -48,7 +48,8 @@ module Cms::Routes
         :move_up => :put,
         :move_down => :put,
         :move_to_bottom => :put,
-        :move_to_top => :put
+        :move_to_top => :put,
+        :move_to => :put
       }
       cms.resources :links
 

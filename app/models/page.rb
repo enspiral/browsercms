@@ -127,6 +127,15 @@ class Page < ActiveRecord::Base
       connectors.for_page_version(draft.version).like(connector).first.send("move_#{direction}")
     end    
   end
+  
+  def move_connector_to(connector, position) # Takes a position int, sends this through to insert_at(position) inside acts_as_list.rb
+    transaction do
+      raise "Connector is nil" unless connector
+      raise "Position is nil" unless position
+      update_attributes(:version_comment => "#{connector.connectable} was moved to position #{position} in the '#{connector.container}' container")
+      connectors.for_page_version(draft.version).like(connector).first.send("insert_at", position)
+    end
+  end
     
   %w(up down to_top to_bottom).each do |d|
     define_method("move_connector_#{d}") do |connector|
