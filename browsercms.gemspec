@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{browsercms}
-  s.version = "3.1.0"
+  s.version = "3.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["BrowserMedia"]
-  s.date = %q{2010-03-03}
+  s.date = %q{2010-06-07}
   s.description = %q{BrowserCMS is a general purpose, open source Web Content Management System (CMS) written in Ruby on Rails. Designed for web developers who want to create great looking websites while using standard Rails tools for customizing it.}
   s.email = %q{github@browsermedia.com}
   s.executables = ["browsercms", "bcms"]
@@ -249,7 +249,6 @@ Gem::Specification.new do |s|
      "app/views/portlets/tag_cloud/_form.html.erb",
      "app/views/portlets/tag_cloud/render.html.erb",
      "app/views/tests/pretend/open_with_layout.html.erb",
-     "browsercms.gemspec",
      "db/demo/data.rb",
      "db/demo/page_partials/_footer.html.erb",
      "db/demo/page_partials/_header.html.erb",
@@ -1342,7 +1341,7 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubyforge_project = %q{browsercms}
-  s.rubygems_version = %q{1.3.5}
+  s.rubygems_version = %q{1.3.6}
   s.summary = %q{BrowserCMS is a general purpose, open source Web Content Management System (CMS) written in Ruby on Rails. Designed for web developers who want to create great looking websites while using standard Rails tools for customizing it.}
   s.test_files = [
     "test/custom_assertions.rb",
@@ -1366,6 +1365,7 @@ Gem::Specification.new do |s|
      "test/functional/cms/section_nodes_controller_test.rb",
      "test/functional/cms/sections_controller_test.rb",
      "test/functional/cms/sessions_controller_test.rb",
+     "test/functional/cms/tasks_controller_test.rb",
      "test/functional/cms/toolbar_controller_test.rb",
      "test/functional/cms/users_controller_test.rb",
      "test/functional/tests/pretend_controller_test.rb",

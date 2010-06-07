@@ -43,7 +43,7 @@ module Cms
         end
 
         def connected_page_count
-          Page.currently_connected_to(self).count
+          Page.connected_to(self).count
         end
 
         def content_block_type
